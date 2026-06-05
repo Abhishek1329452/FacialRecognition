@@ -95,3 +95,63 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+# Biometric Portal - Full-Stack Facial Recognition & Profiling Engine
+
+A polished, full-stack facial analysis, registry, and biometric verification gateway powered by custom Computer Vision heuristics and the **Gemini 3.5 AI Engine** via the modern `@google/genai` SDK.
+
+This application allows enterprise-grade facial profiling, landmark coordinate projection, biometric registry compilation, dual-profile comparisons, and terminal gate access verification with complete server-side security.
+
+---
+
+## 🌟 Key Features
+
+1. **Analyze Face (Computer Vision)**:
+   - Captures high-definition viewport frames or allows custom image uploads.
+   - Plots precise structural coordinate masks (Eyes, Nose tracking, Ears, Mouth) in an interactive UI.
+   - Identifies detailed biometric markers: age estimation, gaze direction, smile intensity, face shape, glasses, and multi-class emotional indexes.
+
+2. **Biometric Identity Registry**:
+   - Save physical profiles with a name, role, and metadata tags.
+   - Leverages AI to extract a dense, highly specialized biographical profile summary including deep-structural skeletal characteristics.
+   - Provides administrative controls to clear or search existing registered faces from the database.
+
+3. **Terminal Biometric Gate Verification**:
+   - A secure, realistic real-time entrance verification module.
+   - Runs advanced vector sweeps of incoming camera snapshots against all stored facial profiles.
+   - Enforces terminal lock or unlocks access permissions securely based on similarity thresholds (>70% confidence).
+
+4. **Dual-Face Biometric Comparer**:
+   - Directly compare two independent portraits (with built-in presets for quick evaluation).
+   - Audits facial bone symmetry, age progression, interpupillary ranges, and hairstyle modifications.
+   - Provides a numerical resemblance score and a dense breakdown of alignment contradictions.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons, and Motion animations.
+- **Backend**: Node.js Express server configured with maximum base64 JSON payload processing capabilities.
+- **Biometric Intelligence**: `@google/genai` SDK wrapping Gemini models (`gemini-3.5-flash` primary, self-healing with exponential backoff and `gemini-3.1-flash-lite` auto-fallback for optimal system uptime).
+- **Storage**: Highly optimized local JSON file database stored securely server-side.
+
+---
+
+## 📂 Project Structure
+
+```text
+├── server.ts               # Express full-stack backend, API middleware, and AI routes
+├── index.html              # Frontend application entry HTML
+├── tsconfig.json           # Component, browser, and server build compilation rules
+├── vite.config.ts          # Vite asset compiling and styling hooks
+├── package.json            # Script definitions and dependency trees
+├── src/
+│   ├── main.tsx            # React application entry bootstrapper
+│   ├── App.tsx             # Main layout, topbar, and tabs router
+│   ├── index.css           # Global typography definitions, custom styling, and layout themes
+│   ├── types.ts            # Global TypeScript interface structures
+│   └── components/
+│       ├── BiometricAnalyzer.tsx # Structural point plotting and attribute diagnostics
+│       ├── IdentityRegistry.tsx  # Registering and removing facial profiles
+│       ├── VerificationScan.tsx  # Dynamic terminal security gate logic
+│       ├── BiometricComparer.tsx # Dual photo resemblance comparer dashboard
+│       └── CameraCapture.tsx     # Reusable HTML5 MediaDevices canvas capture stream
